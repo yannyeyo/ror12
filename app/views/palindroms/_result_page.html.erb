@@ -1,0 +1,28 @@
+<% if @palindrom.valid? %>
+    <h3>Таблица с результатами</h3>
+    Введенное диапазон: [0, <%= @number[:num] %>]
+    <table class = "tab">
+        <tr>
+        <th>Позиция</th>
+        <th>Число</th>
+        <th>Число Мерсена</th>
+        </tr>
+        <%i = 1%>
+        <% @hash.each do |res, sqr|%>
+        <tr>
+            <td><%= i %></td>
+            <td><%= res %></td>
+            <td><%= sqr %></td>
+        </tr>
+        <% i = i + 1%>
+        <% end%>
+    </table>
+    Количество таких чисел
+    <p id="counter"><%= @hash.size %></p>
+<% else %>
+    <ul>
+    <% @palindrom.errors.each do |error| %>
+      <p><div class='alert alert-info'><%= error.full_message %></div></p>
+    <% end %>
+  </ul>
+<% end %>

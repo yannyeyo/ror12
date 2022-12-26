@@ -1,0 +1,8 @@
+<h3>Задание:</h3> Найти и вывести числа Мерсена
+<h4>Форма</h4>
+<%= form_with url: '/palindroms/result', method: :post do |form| %>
+  <p><%= form.label :query, "Введите верхнюю границу диапазона [0,n]" %></p>
+  <p><%= form.number_field :num, :class => 'form-control', id: 'num' %></p>
+  <p><%= form.submit("Найти", id: 'find') %></p>
+<% end %>
+<div id='result-container'></div>
